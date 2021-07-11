@@ -1,44 +1,34 @@
-# CoPoDo
- Corona Präventions Dokumentations Software
+# CovScan
+ EU Digital Covid Vaccination Certificates Scan System, based on Python 3.
  
  
  ## Funktion
- Über einen QR Code wird z.B. in einem Restaurant an jedem Tisch ein eigener Code generiert und angebracht. Kunden scannen bei Ankuft mit der passenden App den Code ab und sind damit in der Datenbank erfasst. Nach einer gewissen Zeit wird nachgefragt ob Location schon verlassen wurde oder noch anwesend ist. Bei negativer oder keiner Antwort wird der User automatisch ausgelogt.
+ Basierend auf einem Raspberry Pi 3B / 3B+ soll das System über eine angeschlossene Kamera die QR Codes scannen.
+ Bei erfolgreichem Scan und Verifikation, wird ein Audiovisuelles Signal (in Form von z.B. einem Bildschirm, einer LED, einem Buzzer, ...) abgegeben, um so einer Aufsichtsperson Feedback zu geben.
+ 
+ Das System soll zu einem Systemverbund vernetzt werden können, inkl. einem Administratorpanel mit Monitoring-Funktion.
+ U.U. ist geplant ein tracking ein zu bauen, welches gescannte QR Codes speichert, um eine illegale doppelte Nutzung zu verhindern (Code Sharing).
+ In wie fern ein tracking möglich ist, vor dem Hintergrund des Verlassens und Wiedereintritt der Location ist noch zu klären (Abmeldung, Wiederanmeldung bei Code Sharing Blockade). Das Trackingsystem muss auf das jeweilige Vorhaben angepasst werden (z.B. mit Code Sharing Timeout).
+ 
  
  ## Vorteile
- + Kein Papierkrieg mehr
- + Verifizierte Angaben
- + Datenschutz für Kunden
- + Umweltfreundlicher
- + Entlastung der Gesundheitsämter
+ + Weniger Personal zum Scannen notwendig
+ + Personen schneller abfertigen
+ + Code Sharing Blockade
+ + Tracking über Besucher / Zahl der Scans
+ + Mehrere Scan Stationen verbinden
+ + Monitoring der Scan Stationen
  
+
  ## Komponenten
- 
- ### App
- Über die App werden die User registriert und verifiziert. Checkin und Checkout läuft über die App sowie die einsicht in die eigene Historie
- 
- ### Server
- Der Server ist der Schlüssel bei dem System. Hier werden die Daten gesammelt und gespeichert. Gleichzeitig richten die Geschäfte hier ihre Konten ein und managen diese
- 
- ### WebApp
- Gleiche wie App, nur als WebApp für Offline User
- 
- 
- ## RoadMap
- 
- ### Server
- 1. Grundgerüst über PHP --> DB Struktur + Anbindungs Klasse
- 2. Rest API Oauth 2.0 (2FA)
- 3. Backend gerüst erstellen
- 4. Framework integrieren
- 5. Funktionen ausbauen
- 6. API + DB verschlüsselung integrieren und ausbauen (MD5? RSA?)
- 
+ + Raspberry Pi 3B / 3B+
+ + Kamera (min. 5MP / 1080p)
+ + LEDs / Buzzer / Screen
  
  
  ## Changelog
  
- Version 0.0.1-A
+ Version 0.0.1-A | 11.07.2021
  ```
  + Initial Commit
  + Gerüst aufgebaut
