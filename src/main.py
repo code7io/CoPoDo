@@ -3,6 +3,7 @@
 import sys
 import zlib
 import pprint
+import urllib.request, json
 
 #import PIL.Image
 #import pyzbar.pyzbar
@@ -22,6 +23,20 @@ cbordata = zlib.decompress(zlibdata)
 decoded = cbor2.loads(cbordata)
 data = cbor2.loads(decoded.value[2])
 
+pprint.pprint(data)
+
+
+
 # TODO: fetch valueset from ehc github repo and map them
 
-pprint.pprint(data)
+baseUrl = "https://raw.githubusercontent.com/ehn-dcc-development/ehn-dcc-valuesets/main/"
+
+medicalProducts= 'vaccine-medicinal-product.json'
+countryCodes = 'country-2-codes.json'
+manufacturers = 'vaccine-mah-manf.json'
+testResults = 'test-result.json'
+testTypes = 'test-type.json'
+
+with urllib.request.urlopen(baseUrl + medicalProducts) as url:
+    data = json.loads(url.read().decode())
+    pprint.pprint(data)
