@@ -24,10 +24,36 @@
  + Raspberry Pi 3B / 3B+
  + Kamera (min. 5MP / 1080p)
  + LEDs / Buzzer / Screen
+
+
+ ## Lib's
+ + base45 
+ + cbor2 
+ + pillow
+ + pyzbar
+ + zbar
+
+ ## Schritte um QR Code zu decodieren
+ + QR Code in String umwandeln
+ + nach dem Start suchen via 'HC1:'
+ + String nach Startcode über Base45 deocdieren
+ + Ergebnis sind zlib komprimierte Daten 
+ + zlib dekomprimieren führt zu CBOR Web Token
+ + Token auslesen
+
+ --> Signatur muss nun bestätigt werden über API von EHC
  
  
  ## Changelog
  
+ Version 0.0.2 | 12.07.2021
+ ```
+ + Vorgehensweise hinzugefügt
+ + erste Code Ansätze geschrieben
+ + Lizenz hinzugefügt
+ ```
+
+
  Version 0.0.1-A | 11.07.2021
  ```
  + Initial Commit
